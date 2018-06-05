@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="author" content="Mojtaba Asgharzadeh Neshelli">
+  <title>mapserver</title>
+  <link rel="stylesheet" href="mainStyle.css"></link>
+</head>
+<body id="mainDiv">
+
+  <!-- hamburger menu -->
+  <div class="hamburgerMenu" onclick="hamburger(this)">
+    <div >
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+  </div>
+<p id="layerP">layers</p>
+
+<!-- dropdown, for choosing additional layers -->
+<div class="dropdown" onclick="layerFunc()" >
+    <label id="labelRailroad"> <img src="img/rail.png" alt="railways" /> <input type="checkbox"  id="railwaysChecked" /><i> railways</i></label>
+    <label id="labelWaterway"> <img src="img/waterways.png" alt="waterways" /> <input type="checkbox" id="waterwaysChecked" /><i>waterways</i></label>
+</div></div>
+
+<!-- HEART of my Project, it shows actual image and consists sets of events -->
+<div id="mainDiv" ondblclick="doubleClick()" onmousedown="dragFuncStart()"  onmouseup="dragFuncOver()"  >
+  <img  id="mapImg"  draggable="false" src="http://localhost/cgi-bin/mapserv.exe?map=C:/ms4w/apps/MyProject/project.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=places&SRS=EPSG:4326&CRS=CRS:84&BBOX=44,25,63,40&WIDTH=1000&HEIGHT=600&FORMAT=image/png" />
+</div>
+
+<!-- Zoom icons -->
+<div class="zoomKey" >
+  <label> <img src="img/plus.png" alt="plus Sign" /> <input type="button"  onclick="zoomInFunc()" /></label>
+  <label> <img src="img/minus.png" alt="minus Sign" /> <input type="button"  onclick="zoomOutFunc()" /></label>
+</div>
+
+<!-- iframe ; for showing queries -->
+<div class="queryInfo" id="queryInfo">
+  <p>feature info:</p>
+<iframe id="iframeSet" width="200px" height="200px">iframeLoad!!</iframe>
+</div>
+
+<!-- pin image -->
+<img id="pinImage" src="img/Pin.png" alt="pin" style="display:none; position:absolute; top:0; left:0;"/>
+
+<!-- Qoute Text
+todo: make it hoverable or fancy!! :D -->
+<div id="infoDouble">
+  <p id="dblQoute">for getting query please while Pressing <b>AltKey</b>, <b>doubleClick</b> on the feature</p>
+</div>
+
+<!-- direction icons for pan when clicking -->
+<div class="directionLogo">
+  <label id="panUp"> <img src="img/up.png" /> <input type="button" onclick="panUp()" /> </label>
+  <label id="panRight"> <img src="img/right.png" /> <input type="button" onclick="panRight()" /> </label>
+  <label id="panLeft"> <img src="img/left.png" /> <input type="button" onclick="panLeft()" /> </label>
+  <label id="panDown"> <img src="img/down.png" /> <input type="button" onclick="panDown()" /> </label>
+</div>
+
+<!-- reload icon -->
+<div class="reloadLogo">
+<label> <img src="img/reload.png" /> <input type="button" onclick="reloadFunc()" /> </label>
+</div>
+
+<!-- script -->
+  <script type="text/javascript" src="mainScript.js"></script>
+
+  <img id="northSign" src="img/north.png" alt="north sign" /> <!-- north pole sign -->
+</body>
+</html>

@@ -1,0 +1,162 @@
+# started at 2017/12/08 by M.A.Neshelli
+# P6 of WebGIS
+
+
+MAP
+      STATUS		ON
+      IMAGETYPE		PNG
+      FONTSET		"fonts/fonts.list"
+      SYMBOLSET		"symbols/symbols35.sym"
+      UNITS		dd
+      EXTENT		44 25 63 40 #47 for full caspian mode
+      SHAPEPATH		"data"
+      IMAGECOLOR	"#dbdbf0"
+      SIZE		1000 600
+      PROJECTION
+                        "init=epsg:4326"
+      END
+
+      WEB
+      #      TEMPLATE             "template.html"
+            IMAGEPATH             "C:/ms4w/tmp/ms_tmp"
+            IMAGEURL              "/ms_tmp/"
+            METADATA
+                    "wms_title"				"WMS Project"
+                    "wms_srs"				"ESPG:4326"
+                    "wms_onlineresource"		"http://localhost/cgi-bin/mapserv.exe?map=C:/ms4w/apps/MyProject/project.map&"
+                    "wms_enable_request"		"*"
+                    "wms_feature_info_mime_type"	"text/html"
+                    "wms_info_format"			"text/html"
+            END
+      END
+
+############# Begin ScaleBar and Legend creation #############
+
+#### Legend
+      LEGEND
+              POSITION		LL
+              STATUS		EMBED
+      #       TRANSPARENT	ON
+      END
+
+#### ScaleBar
+      SCALEBAR
+              POSITION		LR
+              STATUS		EMBED
+              STYLE		1
+              UNITS		KILOMETERS
+      END
+
+############# Begin LAYER creation #############
+
+#### places LAYER
+      LAYER   NAME		"places"
+              TYPE		polygon
+              DATA		"places"
+              STATUS		DEFAULT
+              TOLERANCE		3
+              CLASS
+                    NAME		"Places"
+                    TEMPLATE		"template/placeTemp.html"
+                    STYLE
+                            COLOR		"#b2b266"
+                            OUTLINECOLOR	"#331a00"
+                    END
+              END
+              METADATA
+                    "wms_opaque"	"1"
+                    "wms_title"		"bare earth with places"
+              END
+              PROJECTION
+                    "init=epsg:4326"
+              END
+      END
+
+#### water LAYER
+      LAYER   NAME 		"water"
+              TYPE		polygon
+              DATA		"water"
+              STATUS		DEFAULT
+              CLASSITEM		"fclass"
+              LABELITEM		"name"
+              TOLERANCE		3
+              CLASS
+                    NAME		"caspian sea"
+                    EXPRESSION	"sea"
+                    STYLE
+                            COLOR		"#0066cc"
+                    END
+                    LABEL
+                            COLOR		"#000000"
+                            TYPE		TRUETYPE
+                            FONT		times-bold
+                            SIZE		15
+                            ANTIALIAS		TRUE
+                            POSITION		CC
+                            BUFFER		4
+                    END
+              END
+              CLASS
+                    NAME		"Lakes"
+                    TEMPLATE		"template/waterTemp.html"
+                    STYLE
+                            COLOR		"#1a8cff"
+                            OUTLINECOLOR	"#00264d"
+                    END
+              END
+              METADATA
+                    "wms_opaque"	"1"
+                    "wms_title"		"waters"
+              END
+              PROJECTION
+                    "init=epsg:4326"
+              END
+      END
+
+#### railroads LAYER
+      LAYER  NAME		"railways"
+             TYPE		LINE
+             DATA		"railways"
+             STATUS		ON
+             TOLERANCE		3
+             CLASS
+                    NAME		"Railways"
+                    TEMPLATE		"template/railTemp.html"
+                    STYLE
+                            COLOR		"#ff6600"
+                            SIZE		3
+                            SYMBOL		"line7"
+                    END
+             END
+             METADATA
+                    "wms_title"		"railways"
+             END
+             PROJECTION
+                    "init=epsg:4326"
+             END
+      END
+
+#### waterways LAYERs
+      LAYER  NAME		"waterways"
+             TYPE		LINE
+             DATA		"waterways"
+             STATUS		ON
+             TOLERANCE		3
+             CLASS
+                    NAME		"Waterways"
+                    TEMPLATE		"template/waterwaysTemp.html"
+                    STYLE
+                            COLOR		"#4d88ff"
+                            SIZE		5
+                    #       SYMBOL		"line1"
+                    END
+             END
+             METADATA
+                    "wms_title"		"waterways"
+             END
+      END
+
+############# end LAYER creation #############
+
+
+END

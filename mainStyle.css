@@ -1,0 +1,216 @@
+
+/* hamburger menu styling
+*/
+.hamburgerMenu {
+    display: inline;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+}
+#layerP{
+  display: inline;
+  position: relative;
+  left: 50px;
+  top: -30px;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/*  changing hamburger style from state ordered to cross sign :D
+      it uses javascript function
+*/
+/* Rotate first bar */
+.change .bar1 {
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+/* Rotate last bar */
+.change .bar3 {
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+.change #layerP{
+  opacity: 0;
+}
+
+
+/* dropdown
+*/
+.dropdown{
+  background-color: #dbdbf0;
+  display: block;
+  width: 0;
+  transition: width 300ms;
+  position: relative;
+  z-index: 1;
+}
+.dropdown i{
+  display: none;
+}
+.dropdown label{
+  text-decoration: none;
+  display: block;
+  width: 0px;
+  height: 100px;
+}
+.dropdown label input{
+  display: none;
+}
+.dropdown img{
+  position: relative;
+  left: -20px;
+  width: 0px;
+  height: 100px;
+  transition:width 300ms;
+}
+.dropdown label:hover{
+  background-color: #1a75ff !important;
+}
+.change .dropdown label{
+  width: 280px;
+  height: 120px;
+  padding: 15px 10px 5px 20px;
+}
+.change .dropdown i{
+  display: inline;
+}
+.change .dropdown{
+  display: block;
+  width: 310px;
+}
+.change .dropdown img{
+  width: 300px;
+  height: 100px;
+}
+
+/* image styling
+*/
+#mapImg{
+  position: fixed;
+  top: 20px;
+  left: 150px;
+  user-select: none;
+  cursor: pointer;
+}
+
+/*
+zoom function Styling
+*/
+.zoomKey{
+  position: absolute;
+  top: 500px;
+  left: 1300px;
+}
+.zoomKey img{
+  width: 40px;
+}
+.zoomKey label{
+  display: block;
+}
+.zoomKey input{
+  display: none;
+}
+.zoomKey label :hover{
+  background-color: #1a75ff;
+  cursor: pointer;
+}
+
+/*
+double click setting
+*/
+#infoDouble{
+  position: absolute;
+  width: 200px;
+  left: 1190px;
+  top: 130px;
+}
+
+#northSign{
+  width: 50px;
+  position: absolute;
+  top: 20px;
+  left: 1300px;
+}
+
+
+/*
+iframe Styling
+*/
+.queryInfo{
+  position: absolute;
+  top: 200px;
+  left: 1190px;
+  display: block;
+}
+.queryInfo iframe{
+    background-color: #dbdbf0;
+}
+
+#pinImage{
+  width: 15px;
+  display: none;
+}
+
+/*
+pan direction icons
+*/
+.directionLogo{
+  position: absolute;
+  top: 480px;
+  left: 1210px;
+}
+.directionLogo label{
+  display: block;
+}
+.directionLogo img{
+  width: 40px;
+}
+#panUp{
+  position: relative;
+}
+#panRight{
+  position: relative;
+  left: 45px;
+}
+#panLeft{
+  position: relative;
+  top: -44px;
+  left: -45px;
+}
+#panDown{
+  position: relative;
+  top: -45px;
+}
+.directionLogo input{
+  display: none;
+}
+.directionLogo label :hover{
+  background-color: #1a75ff;
+  cursor: pointer;
+}
+
+/* Reload icons */
+.reloadLogo{
+ position: absolute;
+ top: 524px;
+ left: 1210px;
+}
+.reloadLogo img{
+  width: 40px;
+}
+.reloadLogo input{
+  display: none;
+}
+.reloadLogo label :hover{
+  background-color: #1a75ff;
+  cursor: pointer;
+}
